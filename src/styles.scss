@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./app/shared/styles/src/lib/scss/main.scss";
+@font-face {
+  font-family: 'Inter';
+  src: url('./app/shared/styles/src/lib/fonts/Inter/static/Inter-Regular.ttf');
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+html {
+  font-size: 10px;
+}
+.container {
+  width: 100%;
+  max-width: 125rem;
+  margin: 0 auto;
+  padding: 0 1.7rem;
+}
+
+section {
+  padding: 1.7rem 0;
+}
+
