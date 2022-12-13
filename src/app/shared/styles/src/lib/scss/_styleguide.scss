@@ -1,34 +1,26 @@
-.st-row {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-}
-.st-container{
-    padding: 0 5rem;
-}
-
-.flex-equal {
-  width: 50%;
-}
-
-// COLORS
-
-$blue-primary: #003459;
-$white-primary: #fff;
-
-$colorsArray: (
-  "blue-primary": $blue-primary,
-  "white-primary": $white-primary,
-);
-
-@each $key, $value in $colorsArray {
-  .st-bg-#{$key} {
-    background-color: $value;
+@for $i from 0 to 1920 {
+  .--width-#{$i} {
+    width: #{$i} + "rem";
+  }
+  .--m-bottom-#{$i} {
+    margin-bottom: #{$i} + "rem";
   }
 }
-@each $key, $value in $colorsArray {
-  .st-color-#{$key} {
-    color: $value;
+
+.container {
+  width: 100%;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 0 1.7rem;
+}
+.height-full {
+  height: 100%;
+}
+.d-flex {
+  display: flex;
+
+  &__column {
+    flex-direction: column;
   }
 }
 .--align-items {
@@ -40,63 +32,23 @@ $colorsArray: (
     align-items: flex-end !important;
   }
 }
-
-.height-full {
-  height: 100%;
-}
-.width-full {
-  width: 100%;
-}
-
 .--justify-content {
-  &-end {
-    justify-content: end !important;
-  }
-
   &-center {
     justify-content: center !important;
   }
 
-  &-space-between {
-    justify-content: space-between !important;
+  &-end {
+    justify-content: flex-end !important;
   }
 }
-
-$plus-spacing-xs: 4px;
-$plus-spacing-s: 8px;
-$plus-spacing-m: 16px;
-$plus-spacing-l: 24px;
-$plus-spacing-xl: 32px;
-$plus-spacing-xxl: 40px;
-$plus-spacing-xxl-2: 48px;
-
-$spacingArray: (
-  "xs": $plus-spacing-xs,
-  "s": $plus-spacing-s,
-  "m": $plus-spacing-m,
-  "l": $plus-spacing-l,
-  "xl": $plus-spacing-xl,
-  "xxl": $plus-spacing-xxl,
-  "xxl-2": $plus-spacing-xxl-2,
-);
-
-@each $key, $value in $spacingArray {
-  .plus-font-size-#{$key} {
-    font-size: $value !important;
-  }
+@mixin input-style() {
+  width: 45%;
+  padding: 1.4rem 2rem;
+  background-color: #f8fafc;
+  border: 1px solid #d8d6d6;
+  outline: none;
+  width: 100%;
 }
-
-@for $i from 0 to 1920 {
-  .--max-width-#{$i} {
-    max-width: #{$i} + "rem";
-  }
-  .--m-top-#{$i} {
-    margin-top: #{$i} + "rem";
-  }
-  .--m-bottom-#{$i} {
-    margin-bottom: #{$i} + "rem";
-  }
-}
-.text-align-center{
-    text-align: center;
+.input-style {
+  @include input-style();
 }
