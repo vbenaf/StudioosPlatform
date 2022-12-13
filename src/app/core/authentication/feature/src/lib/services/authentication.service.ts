@@ -32,7 +32,7 @@ export class AuthenticationService {
     localStorage.setItem('user', JSON.stringify(this.userData));
   }
   removeUserToLocalStorage() {
-    localStorage.setItem('user', 'null');
+    localStorage.removeItem('user');
   }
 
   signIn(email: string, password: string) {
@@ -68,8 +68,9 @@ export class AuthenticationService {
   }
 
   isAuthenticated(): boolean {
-    const user = localStorage.getItem('user') || null;
+    const user = localStorage.getItem('user');
     if (user) {
+      console.log(localStorage.getItem('user'));
       return true;
     } else {
       return false;
